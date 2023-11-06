@@ -19,12 +19,14 @@
 		531CF8222AF8B7070054A915 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CF8212AF8B7070054A915 /* SearchViewController.swift */; };
 		531CF8242AF8B79D0054A915 /* ArcadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CF8232AF8B79D0054A915 /* ArcadeViewController.swift */; };
 		531CF8262AF8BD5C0054A915 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CF8252AF8BD5C0054A915 /* BaseViewController.swift */; };
-		531CF82C2AF8C81C0054A915 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 531CF82B2AF8C81C0054A915 /* SnapKit */; };
 		531CF82E2AF8CC7E0054A915 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CF82D2AF8CC7E0054A915 /* AppModel.swift */; };
 		531CF8302AF8CDCC0054A915 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CF82F2AF8CDCC0054A915 /* APIManager.swift */; };
-		531CF8332AF8CE2F0054A915 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 531CF8322AF8CE2F0054A915 /* RxCocoa */; };
-		531CF8352AF8CE2F0054A915 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 531CF8342AF8CE2F0054A915 /* RxSwift */; };
-		531CF8372AF8CE2F0054A915 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 531CF8362AF8CE2F0054A915 /* RxTest */; };
+		531CF83A2AF907D70054A915 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 531CF8392AF907D70054A915 /* RxCocoa */; };
+		531CF83C2AF907D70054A915 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 531CF83B2AF907D70054A915 /* RxSwift */; };
+		531CF83F2AF907DF0054A915 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 531CF83E2AF907DF0054A915 /* SnapKit */; };
+		531CF8412AF90FE10054A915 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CF8402AF90FE10054A915 /* SearchCollectionViewCell.swift */; };
+		531CF8432AF91DA30054A915 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CF8422AF91DA30054A915 /* SearchTableViewCell.swift */; };
+		531CF8462AF91E130054A915 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 531CF8452AF91E130054A915 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		531CF8252AF8BD5C0054A915 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		531CF82D2AF8CC7E0054A915 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		531CF82F2AF8CDCC0054A915 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		531CF8402AF90FE10054A915 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		531CF8422AF91DA30054A915 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +55,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				531CF8372AF8CE2F0054A915 /* RxTest in Frameworks */,
-				531CF8352AF8CE2F0054A915 /* RxSwift in Frameworks */,
-				531CF8332AF8CE2F0054A915 /* RxCocoa in Frameworks */,
-				531CF82C2AF8C81C0054A915 /* SnapKit in Frameworks */,
+				531CF8462AF91E130054A915 /* Kingfisher in Frameworks */,
+				531CF83F2AF907DF0054A915 /* SnapKit in Frameworks */,
+				531CF83C2AF907D70054A915 /* RxSwift in Frameworks */,
+				531CF83A2AF907D70054A915 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				531CF82D2AF8CC7E0054A915 /* AppModel.swift */,
+				531CF82F2AF8CDCC0054A915 /* APIManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -118,7 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				531CF8212AF8B7070054A915 /* SearchViewController.swift */,
-				531CF82F2AF8CDCC0054A915 /* APIManager.swift */,
+				531CF8422AF91DA30054A915 /* SearchTableViewCell.swift */,
+				531CF8402AF90FE10054A915 /* SearchCollectionViewCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -140,10 +146,10 @@
 			);
 			name = AppStoreClone;
 			packageProductDependencies = (
-				531CF82B2AF8C81C0054A915 /* SnapKit */,
-				531CF8322AF8CE2F0054A915 /* RxCocoa */,
-				531CF8342AF8CE2F0054A915 /* RxSwift */,
-				531CF8362AF8CE2F0054A915 /* RxTest */,
+				531CF8392AF907D70054A915 /* RxCocoa */,
+				531CF83B2AF907D70054A915 /* RxSwift */,
+				531CF83E2AF907DF0054A915 /* SnapKit */,
+				531CF8452AF91E130054A915 /* Kingfisher */,
 			);
 			productName = AppStoreClone;
 			productReference = 531CF8002AF8B4D00054A915 /* AppStoreClone.app */;
@@ -174,8 +180,9 @@
 			);
 			mainGroup = 531CF7F72AF8B4D00054A915;
 			packageReferences = (
-				531CF82A2AF8C81C0054A915 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				531CF8312AF8CE2F0054A915 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				531CF8382AF907D70054A915 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				531CF83D2AF907DF0054A915 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				531CF8442AF91E120054A915 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 531CF8012AF8B4D00054A915 /* Products */;
 			projectDirPath = "";
@@ -213,8 +220,10 @@
 				531CF8262AF8BD5C0054A915 /* BaseViewController.swift in Sources */,
 				531CF8202AF8B6F90054A915 /* AppViewController.swift in Sources */,
 				531CF81E2AF8B6EA0054A915 /* GameViewController.swift in Sources */,
+				531CF8412AF90FE10054A915 /* SearchCollectionViewCell.swift in Sources */,
 				531CF8062AF8B4D00054A915 /* SceneDelegate.swift in Sources */,
 				531CF8242AF8B79D0054A915 /* ArcadeViewController.swift in Sources */,
+				531CF8432AF91DA30054A915 /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,15 +446,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		531CF82A2AF8C81C0054A915 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.6.0;
-			};
-		};
-		531CF8312AF8CE2F0054A915 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		531CF8382AF907D70054A915 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -453,28 +454,44 @@
 				minimumVersion = 6.6.0;
 			};
 		};
+		531CF83D2AF907DF0054A915 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+		531CF8442AF91E120054A915 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		531CF82B2AF8C81C0054A915 /* SnapKit */ = {
+		531CF8392AF907D70054A915 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 531CF82A2AF8C81C0054A915 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		531CF8322AF8CE2F0054A915 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 531CF8312AF8CE2F0054A915 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = 531CF8382AF907D70054A915 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		531CF8342AF8CE2F0054A915 /* RxSwift */ = {
+		531CF83B2AF907D70054A915 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 531CF8312AF8CE2F0054A915 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = 531CF8382AF907D70054A915 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
-		531CF8362AF8CE2F0054A915 /* RxTest */ = {
+		531CF83E2AF907DF0054A915 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 531CF8312AF8CE2F0054A915 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxTest;
+			package = 531CF83D2AF907DF0054A915 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		531CF8452AF91E130054A915 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 531CF8442AF91E120054A915 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
