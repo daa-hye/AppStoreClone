@@ -76,13 +76,12 @@ final class SearchViewController: BaseViewController {
             .subscribe(with: self) { owner, text in
                 let request = APIManager
                     .request(text)
-                    .share()
+                    .asDriver(onErrorJustReturn: AppModel(resultCount: 0, results: []))
 
                 request
-                    .subscribe(with: self) { owner, result in
+                    .drive(with: self) { owner, result in
                         owner.data.append(contentsOf: result.results)
                         owner.items.onNext(owner.data)
-
                     }
                     .disposed(by: owner.disposeBag)
             }
@@ -92,11 +91,18 @@ final class SearchViewController: BaseViewController {
 
     override func configureHierarchy() {
         view.addSubview(searchBar)
+        view.addSubview(tableView)
     }
 
     override func setLayout() {
         searchBar.snp.makeConstraints {
             $0.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+        }
+
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(searchBar.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
 
