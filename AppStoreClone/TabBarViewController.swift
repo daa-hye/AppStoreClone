@@ -107,7 +107,7 @@ fileprivate enum TabType {
         case .arcade:
             return "Arcade"
         case .search:
-            return "Search"
+            return "검색"
         }
     }
 
