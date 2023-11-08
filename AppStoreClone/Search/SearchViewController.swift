@@ -12,10 +12,9 @@ import Kingfisher
 
 final class SearchViewController: BaseViewController {
 
-    private let disposeBag = DisposeBag()
+    let viewModel = SearchViewModel()
 
-    private var data: [AppInfo] = []
-    private lazy var items = BehaviorSubject(value: data)
+    private let disposeBag = DisposeBag()
 
     private let searchBar = {
         let view = UISearchBar()
@@ -24,33 +23,46 @@ final class SearchViewController: BaseViewController {
         return view
     }()
 
-    private let tableView: UITableView = {
-       let view = UITableView()
-        view.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
-        view.backgroundColor = .white
-        view.rowHeight = 180
-        view.separatorStyle = .none
-       return view
-     }()
-
-//    lazy var collectionView = {
-//        let view = UICollectionView(frame: .zero, collectionViewLayout: basicLayout())
-//        return view
-//    }()
+    lazy var collectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: basicLayout())
+        view.showsHorizontalScrollIndicator = false
+        view.alwaysBounceHorizontal = false
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifier)
         bind()
     }
 
     private func bind() {
 
-        items
-            .bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.identifier, cellType: SearchTableViewCell.self)) { (row, element, cell) in
+        let input = SearchViewModel.Input(searchButtonTapped: searchBar.rx.searchButtonClicked.asObservable(),
+                                          searchQuery: searchBar.rx.text.orEmpty.asObservable())
 
-                cell.appNameLabel.text = element.trackName
-                cell.appIconImageView.kf.setImage(with: URL(string: element.artworkUrl512))
+        let output = viewModel.transform(input)
+
+        output.items
+            .bind(to: collectionView.rx.items(cellIdentifier: SearchCollectionViewCell.identifier, cellType: SearchCollectionViewCell.self)) { (row, element, cell) in
+
+                cell.titleLabel.text = element.trackName
+                cell.iconImageView.kf.setImage(with: URL(string: element.artworkUrl512)!)
+                cell.ratingLabel.text = "ddddd"
+                cell.genreLabel.text = element.primaryGenreName
+                cell.sellerLabel.text = element.sellerName
+
+                cell.firstScreenshotImageView.kf.setImage(with: URL(string: element.screenshotUrls[0])!)
+                cell.secondScreenshotImageView.kf.setImage(with: URL(string: element.screenshotUrls[1])!)
+                cell.thirdScreenshotImageView.kf.setImage(with: URL(string: element.screenshotUrls[2])!)
+
+            }
+            .disposed(by: disposeBag)
+
+        collectionView.rx.itemSelected
+            .subscribe(with: self) { owner, indexPath in
+                owner.navigationController?.pushViewController(DetailViewController(), animated: true)
             }
             .disposed(by: disposeBag)
 
@@ -68,30 +80,11 @@ final class SearchViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
 
-        searchBar.rx.searchButtonClicked
-            .withLatestFrom(searchBar.rx.text.orEmpty){ _, text in
-                return text
-            }
-            .observe(on: MainScheduler.instance)
-            .subscribe(with: self) { owner, text in
-                let request = APIManager
-                    .request(text)
-                    .asDriver(onErrorJustReturn: AppModel(resultCount: 0, results: []))
-
-                request
-                    .drive(with: self) { owner, result in
-                        owner.data.append(contentsOf: result.results)
-                        owner.items.onNext(owner.data)
-                    }
-                    .disposed(by: owner.disposeBag)
-            }
-            .disposed(by: disposeBag)
-
     }
 
     override func configureHierarchy() {
         view.addSubview(searchBar)
-        view.addSubview(tableView)
+        view.addSubview(collectionView)
     }
 
     override func setLayout() {
@@ -99,7 +92,7 @@ final class SearchViewController: BaseViewController {
             $0.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
         }
 
-        tableView.snp.makeConstraints {
+        collectionView.snp.makeConstraints {
             $0.top.equalTo(searchBar.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
@@ -118,14 +111,14 @@ extension SearchViewController {
 
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.5))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.5))
 
             let group: NSCollectionLayoutGroup
 
             if #available(iOS 16.0, *) {
-                group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
+                group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
             } else {
-                group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
             }
 
             let section = NSCollectionLayoutSection(group: group)

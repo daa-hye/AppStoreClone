@@ -37,6 +37,8 @@ final class SearchCollectionViewCell: UICollectionViewCell {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.borderWidth = 0.5
         view.layer.cornerRadius = 8
         return view
     }()
@@ -58,7 +60,7 @@ final class SearchCollectionViewCell: UICollectionViewCell {
         button.setTitle("받기", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 16
+        button.layer.cornerRadius = 8
         return button
     }()
 
@@ -71,35 +73,62 @@ final class SearchCollectionViewCell: UICollectionViewCell {
 
     let ratingLabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.textColor = .darkGray
         return label
     }()
 
-    let sellerLavel = {
+    let sellerLabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.textColor = .darkGray
         return label
     }()
 
     let genreLabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.textColor = .darkGray
         return label
     }()
 
     let screenshotStackView = {
         let view = UIStackView()
         view.axis = .horizontal
-        view.distribution = .fill
+        view.distribution = .fillEqually
+        view.spacing = 5
         return view
     }()
 
-    let screenshotImageView = {
+    let firstScreenshotImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        view.layer.cornerRadius = 16
+        view.clipsToBounds = true
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.borderWidth = 0.5
+        return view
+    }()
+
+    let secondScreenshotImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.layer.cornerRadius = 16
         view.clipsToBounds = true
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.borderWidth = 0.5
         return view
     }()
 
-    lazy var screenshots = [screenshotImageView, screenshotImageView, screenshotImageView]
+    let thirdScreenshotImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFill
+        view.layer.cornerRadius = 16
+        view.clipsToBounds = true
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.borderWidth = 0.5
+        return view
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -129,12 +158,11 @@ final class SearchCollectionViewCell: UICollectionViewCell {
         titleStackView.addArrangedSubview(subtitleLabel)
         titleView.addSubview(downloadButton)
         subStackView.addArrangedSubview(ratingLabel)
-        subStackView.addArrangedSubview(sellerLavel)
+        subStackView.addArrangedSubview(sellerLabel)
         subStackView.addArrangedSubview(genreLabel)
-
-        for screenshot in screenshots {
-            screenshotStackView.addArrangedSubview(screenshot)
-        }
+        screenshotStackView.addArrangedSubview(firstScreenshotImageView)
+        screenshotStackView.addArrangedSubview(secondScreenshotImageView)
+        screenshotStackView.addArrangedSubview(thirdScreenshotImageView)
 
     }
 
@@ -152,18 +180,21 @@ final class SearchCollectionViewCell: UICollectionViewCell {
         iconImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.top.bottom.equalToSuperview()
-            $0.size.equalTo(60)
+            $0.height.equalToSuperview()
+            $0.width.equalTo(iconImageView.snp.height)
         }
 
         downloadButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview()
+            $0.width.equalToSuperview().multipliedBy(0.15)
+            $0.height.equalToSuperview().multipliedBy(0.5)
         }
 
         titleStackView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalTo(iconImageView).offset(20)
-            $0.trailing.equalTo(downloadButton).offset(20)
+            $0.leading.equalTo(iconImageView.snp.trailing).offset(10)
+            $0.trailing.equalTo(downloadButton.snp.leading).offset(10)
         }
 
         subStackView.snp.makeConstraints {
@@ -174,6 +205,7 @@ final class SearchCollectionViewCell: UICollectionViewCell {
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalToSuperview().multipliedBy(0.7)
         }
+        
     }
 
 }
