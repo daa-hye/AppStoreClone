@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import RxSwift
 import RxCocoa
 import Kingfisher
@@ -56,13 +57,14 @@ final class SearchViewController: BaseViewController {
                 cell.firstScreenshotImageView.kf.setImage(with: URL(string: element.screenshotUrls[0])!)
                 cell.secondScreenshotImageView.kf.setImage(with: URL(string: element.screenshotUrls[1])!)
                 cell.thirdScreenshotImageView.kf.setImage(with: URL(string: element.screenshotUrls[2])!)
-
             }
             .disposed(by: disposeBag)
 
-        collectionView.rx.itemSelected
-            .subscribe(with: self) { owner, indexPath in
-                owner.navigationController?.pushViewController(DetailViewController(), animated: true)
+        collectionView.rx.modelSelected(AppInfo.self)
+            .subscribe(with: self) { owner, data in
+                let view = DetailViewController()
+                view.data.onNext(data)
+                owner.navigationController?.pushViewController(view, animated: true)
             }
             .disposed(by: disposeBag)
 

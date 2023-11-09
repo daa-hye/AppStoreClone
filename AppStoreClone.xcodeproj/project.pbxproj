@@ -28,6 +28,8 @@
 		531CF8462AF91E130054A915 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 531CF8452AF91E130054A915 /* Kingfisher */; };
 		531CF8482AF9C1530054A915 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CF8472AF9C1530054A915 /* DetailViewController.swift */; };
 		531CF8572AFB6D520054A915 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CF8562AFB6D520054A915 /* SearchViewModel.swift */; };
+		531CF85A2AFC4E440054A915 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 531CF8592AFC4E440054A915 /* RxDataSources */; };
+		531CF85C2AFC4E8B0054A915 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CF85B2AFC4E8B0054A915 /* BaseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,7 @@
 		531CF8402AF90FE10054A915 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		531CF8472AF9C1530054A915 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		531CF8562AFB6D520054A915 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		531CF85B2AFC4E8B0054A915 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 				531CF8462AF91E130054A915 /* Kingfisher in Frameworks */,
 				531CF83F2AF907DF0054A915 /* SnapKit in Frameworks */,
 				531CF83C2AF907D70054A915 /* RxSwift in Frameworks */,
+				531CF85A2AFC4E440054A915 /* RxDataSources in Frameworks */,
 				531CF83A2AF907D70054A915 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				531CF8252AF8BD5C0054A915 /* BaseViewController.swift */,
+				531CF85B2AFC4E8B0054A915 /* BaseViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 				531CF83B2AF907D70054A915 /* RxSwift */,
 				531CF83E2AF907DF0054A915 /* SnapKit */,
 				531CF8452AF91E130054A915 /* Kingfisher */,
+				531CF8592AFC4E440054A915 /* RxDataSources */,
 			);
 			productName = AppStoreClone;
 			productReference = 531CF8002AF8B4D00054A915 /* AppStoreClone.app */;
@@ -186,6 +192,7 @@
 				531CF8382AF907D70054A915 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				531CF83D2AF907DF0054A915 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				531CF8442AF91E120054A915 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				531CF8582AFC4E440054A915 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = 531CF8012AF8B4D00054A915 /* Products */;
 			projectDirPath = "";
@@ -218,6 +225,7 @@
 				531CF8082AF8B4D00054A915 /* ViewController.swift in Sources */,
 				531CF82E2AF8CC7E0054A915 /* AppModel.swift in Sources */,
 				531CF8222AF8B7070054A915 /* SearchViewController.swift in Sources */,
+				531CF85C2AFC4E8B0054A915 /* BaseViewModel.swift in Sources */,
 				531CF81C2AF8B6DB0054A915 /* TodayViewController.swift in Sources */,
 				531CF8572AFB6D520054A915 /* SearchViewModel.swift in Sources */,
 				531CF8042AF8B4D00054A915 /* AppDelegate.swift in Sources */,
@@ -474,6 +482,14 @@
 				minimumVersion = 7.10.0;
 			};
 		};
+		531CF8582AFC4E440054A915 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -496,6 +512,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 531CF8442AF91E120054A915 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		531CF8592AFC4E440054A915 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 531CF8582AFC4E440054A915 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

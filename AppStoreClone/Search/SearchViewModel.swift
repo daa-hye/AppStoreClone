@@ -8,9 +8,9 @@
 import Foundation
 import RxSwift
 
-class SearchViewModel {
+final class SearchViewModel: BaseViewModel {
 
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
 
     struct Input {
         var searchButtonTapped: Observable<Void>
