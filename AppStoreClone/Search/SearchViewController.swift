@@ -61,9 +61,10 @@ final class SearchViewController: BaseViewController {
             .disposed(by: disposeBag)
 
         collectionView.rx.modelSelected(AppInfo.self)
-            .subscribe(with: self) { owner, data in
-                let view = DetailViewController()
-                view.data.onNext(data)
+            .withUnretained(self)
+            .subscribe { owner, data in
+                let viewModel = DetailViewModel(data: data)
+                let view = DetailViewController(viewModel)
                 owner.navigationController?.pushViewController(view, animated: true)
             }
             .disposed(by: disposeBag)

@@ -11,10 +11,19 @@ import RxCocoa
 
 class DetailViewController: BaseViewController {
 
+    let viewModel: DetailViewModel
+
     let disposeBag = DisposeBag()
 
-    var data =  PublishSubject<AppInfo>()
-
+    init(_ viewModel: DetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 //    let scrollView = {
 //        let view = UIScrollView()
 //        view.showsHorizontalScrollIndicator = false
@@ -73,7 +82,7 @@ class DetailViewController: BaseViewController {
     }
 
     func bind() {
-        data
+        viewModel.data
             .bind(with: self, onNext: { owner, data in
                 owner.titleLabel.rx.text.onNext(data.trackName)
             })

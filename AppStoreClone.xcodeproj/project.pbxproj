@@ -30,6 +30,7 @@
 		531CF8572AFB6D520054A915 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CF8562AFB6D520054A915 /* SearchViewModel.swift */; };
 		531CF85A2AFC4E440054A915 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 531CF8592AFC4E440054A915 /* RxDataSources */; };
 		531CF85C2AFC4E8B0054A915 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CF85B2AFC4E8B0054A915 /* BaseViewModel.swift */; };
+		531CF8672AFDADBF0054A915 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CF8662AFDADBF0054A915 /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		531CF8472AF9C1530054A915 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		531CF8562AFB6D520054A915 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		531CF85B2AFC4E8B0054A915 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		531CF8662AFDADBF0054A915 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				531CF8402AF90FE10054A915 /* SearchCollectionViewCell.swift */,
 				531CF8562AFB6D520054A915 /* SearchViewModel.swift */,
 				531CF8472AF9C1530054A915 /* DetailViewController.swift */,
+				531CF8662AFDADBF0054A915 /* DetailViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				531CF8412AF90FE10054A915 /* SearchCollectionViewCell.swift in Sources */,
 				531CF8062AF8B4D00054A915 /* SceneDelegate.swift in Sources */,
 				531CF8482AF9C1530054A915 /* DetailViewController.swift in Sources */,
+				531CF8672AFDADBF0054A915 /* DetailViewModel.swift in Sources */,
 				531CF8242AF8B79D0054A915 /* ArcadeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
